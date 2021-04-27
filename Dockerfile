@@ -15,5 +15,6 @@ EXPOSE 8080
 CMD ["/usr/local/tomcat/bin/catalina.sh","run"]
 ENV PROJECT_HOME /usr/local/tomcat/webapps/
 COPY /target/MavenProject.war $PROJECT_HOME/MavenProject.war
+CMD "java","-jar","./MavenProject.war"
 
 
