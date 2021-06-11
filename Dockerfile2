@@ -1,0 +1,11 @@
+FROM  centos
+RUN yum install java -y
+RUN mkdir /usr/local/jenkins && yum install curl -y
+RUN curl -O https://get.jenkins.io/war-stable/2.277.3/jenkins.war 
+RUN cp -Rv ./jenkins.war /usr/local/jenkins
+ENV Project_Home /usr/local/jenkins/
+WORKDIR $Project_Home
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","$Project_Home/jenkins.war"]
+
+

@@ -1,0 +1,8 @@
+FROM ubuntu:18.04
+USER root
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y apache2
+COPY ./target/*.war /var/www/html/
+EXPOSE 80
+CMD ["apachectl", "-D", "FOREGROUND"]
